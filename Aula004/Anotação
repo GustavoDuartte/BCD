@@ -1,0 +1,28 @@
+NORMALIZAÇÃO
+
+1° Forma Normal
+
+A) Identifique campos compostos
+
+* Dividi-los em colunas
+
+B) Identifique atributos multivalorados
+
+* Coloca-los em outra tabela relacionada
+
+2° Forma Normal
+
+A) Estar na 1° forma normal
+B) Identificar campos chave
+C) Identificar campos dependentes de outras chaves
+
+* Colocar estes campos em outra tabela
+
+3° Forma Normal
+
+A) Estar na 2° forma normal
+B) Identificar campos derivados
+
+* eliminar estes campos
+
+OBS: Estes serao calculados em consultas/visoes ou Apps
