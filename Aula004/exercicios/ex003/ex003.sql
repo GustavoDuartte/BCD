@@ -40,15 +40,15 @@ CREATE TABLE
     FOREIGN KEY (id_linha) REFERENCES linha (id) ON DELETE CASCADE ON UPDATE CASCADE
   );
 
-LOAD DATA INFILE 'C:/Gustavo/BCD/Aula004/exercicios/ex003/motorista.csv' INTO TABLE motorista FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex003/motorista.csv' INTO TABLE motorista FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Gustavo/BCD/Aula004/exercicios/ex003/telefone.csv' INTO TABLE telefone FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex003/telefone.csv' INTO TABLE telefone FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Gustavo/BCD/Aula004/exercicios/ex003/linha.csv' INTO TABLE linha FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex003/linha.csv' INTO TABLE linha FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Gustavo/BCD/Aula004/exercicios/ex003/dirige.csv' INTO TABLE dirige FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex003/dirige.csv' INTO TABLE dirige FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Gustavo/BCD/Aula004/exercicios/ex003/horario.csv' INTO TABLE horario FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex003/horario.csv' INTO TABLE horario FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
 
 --Query
 select
@@ -64,3 +64,21 @@ select
 from
   motorista m
   join dirige d on m.cpf = d.cpf_moto;
+
+--Exercicios
+--Mostre os horários da linha1
+SELECT
+  *
+FROM
+  horario
+WHERE
+  id_linha = "1";
+
+--Mostre o id_linha das linhas que tenham horário as 11:00hs
+SELECT
+  id_linha,
+  horario
+FROM
+  horario
+WHERE
+  horario LIKE "11:00";

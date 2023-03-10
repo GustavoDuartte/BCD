@@ -17,9 +17,9 @@ CREATE TABLE
   );
 
 CREATE TABLE
-  tel_cliente (
+  telefone (
     id_cliente INT NOT NULL,
-    telefone VARCHAR(255) NOT NULL,
+    tipo VARCHAR(255) NOT NULL,
     celular VARCHAR(255) NOT NULL,
     FOREIGN KEY (id_cliente) REFERENCES cliente (id) ON UPDATE CASCADE ON DELETE CASCADE
   );
@@ -27,13 +27,17 @@ CREATE TABLE
 CREATE TABLE
   parcela (
     id_cliente INT NOT NULL,
-    num_dupli INT NOT NULL PRIMARY KEY,
+    id_dupli INT NOT NULL PRIMARY KEY,
     data_compra DATE NOT NULL,
     vencimento DATE NOT NULL,
     pagamento DATE,
-    valor FLOAT NOT NULL,
-    direfenca FLOAT,
+    valor FLOAT (5, 2) NOT NULL,
+    direfenca FLOAT (5, 2),
     FOREIGN KEY (id_cliente) REFERENCES cliente (id) ON UPDATE CASCADE ON DELETE CASCADE
   );
 
-  
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex004/cliente.csv' INTO TABLE cliente FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex004/telefone.csv' INTO TABLE telefone FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'E:/Gustavo/BCD/Aula004/exercicios/ex004/parcela.csv' INTO TABLE parcela FIELDS TERMINATED BY ';' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
